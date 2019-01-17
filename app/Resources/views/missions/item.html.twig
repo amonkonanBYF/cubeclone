@@ -1,0 +1,71 @@
+{%extends 'missions/baseMissionTemplate.html.twig' %}
+{% block nbrMissions %}
+
+<header class="major">
+  <h2>
+    <strong>
+        <h1>
+        {{ missions | length }} MISSIONS
+        </h1>
+    </strong>
+    </h2>
+</header>
+ {% endblock %}
+{% block missions %}
+
+
+
+
+
+          {% for missions in missions %}
+ <div class="4u 12u(mobile)">
+    <section class="box">
+         <a href="{{ path('mission_path', {'id' : missions.missionId}) }}" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+
+           <header>
+                <h3><a href="{{ path('mission_path', {'id' : missions.missionId}) }}"> {{missions.title }}</a></h3>
+            </header>
+            <strong>Description:</strong><p>{{missions.description}}</p>
+
+
+           <li><strong>Date:</strong>{{missions.dateAs | date()}}</li>
+
+
+           <li>
+           <strong>Domain d'activité:</strong>
+           {%if missions.activity == null %}
+           domaine inconnu
+           {% else %}
+           {{missions.activity}}
+           </li>
+           {% endif %}
+           <li>
+           <strong>Entreprise :</strong>
+           {%if missions.business == null %}
+           inconnu
+           {% else %}
+           {{missions.business}}
+           </li>
+           {% endif %}
+           <li>
+           <strong>Price:</strong>
+           {% if missions.price == 0 %}
+           free
+           {% else %}
+           {{missions.price}}
+           </li>
+           {% endif %}
+
+         </ul>
+
+                <footer>
+                <a href="{{ path('mission_path', {'id' : missions.missionId}) }}" class="button alt"> + Détails</a>
+                </footer>
+            </section>
+        </div>
+         {% endfor %}
+
+      {% endblock %}
+
+
+

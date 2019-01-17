@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<!--
+    Dopetrope by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+        {% block head %}
+
+    <head>
+        <title>CodeCube.com</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="assets/js/ie/html5shiv.js"></script>
+        <link rel="stylesheet" href="{{ asset('bundles/template/assets/css/main.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/template/assets/css/ie8.css') }}" />
+    </head>
+<body>
+<!-- Header -->
+                <div id="header-wrapper">
+                    <div id="header">
+
+                        <!-- Logo -->
+                            <h1><a href="#">CodeCube</a></h1>
+
+                        <!-- Nav -->
+                            <nav id="nav">
+                                <ul>
+                                    <li ><a href="{{ path('homepage') }}">Accueil</a></li>
+                                    <li>
+                                        <a href="{{ path('missions_path') }}">Missions </a>
+
+                                    </li>
+                                    <li ><a href="{{path('info_path') }}">Qui Sommes nous</a></li>
+                                    <li class="current"><a href="{{path('contact_path')}}">Nous Contacter</a></li>
+                                    <!--<li><a href="{{ path('fos_user_security_login') }}">Mon Compte</a></li>-->
+
+
+                                    <li>
+
+                                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                                            <a href="{{ path('fos_user_security_logout') }}">
+                                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                            </a>
+                                        {% else %}
+                                            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                        {% endif %}
+
+
+                                    </li>
+                                </ul>
+                            </nav>
+            {% endblock %}
+
+
+
+
+
+                    </div>
+                </div>
+                      <section id="contact" class="four">
+                                <div class="container">
+
+                                  <header>
+                                    <h2>Contact</h2>
+                                  </header>
+
+                                  <!--<p>Elementum sem parturient nulla quam placerat viverra
+                                  mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
+                                  donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
+                                  orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>-->
+
+                                  <form method="post" action="#">
+                                    <div class="row">
+                                      <div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
+                                      <div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+                                      <div class="12u$">
+                                        <textarea name="message" placeholder="Message"></textarea>
+                                      </div>
+                                      <div class="12u$">
+                                        <input type="submit" value="Send Message" />
+                                      </div>
+                                    </div>
+                                  </form>
+
+                                </div>
+                      </section>
+
+    <!-- Scripts -->
+            <script src="{{ asset('bundles/template/assets/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('bundles/template/assets/js/jquery.dropotron.min.js') }}"></script>
+            <script src="{{ asset('bundles/template/assets/js/skel.min.js') }}"></script>
+            <script src="{{ asset('bundles/template/assets/js/skel-viewport.min.js') }}"></script>
+            <script src="{{ asset('bundles/template/assets/js/util.js') }}"></script>
+            <script src="{{ asset('bundles/template/assets/js/ie/respond.min.js') }}"></script>
+            <script src="{{ asset('bundles/template/assets/js/main.js') }}"></script>
+
+    </body>
+</html>

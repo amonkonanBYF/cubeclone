@@ -1,0 +1,40 @@
+{%extends 'missions/baseMissionTemplate.html.twig' %}
+{% block nbrMissions %}
+
+<body>
+
+<article>
+  <header>
+    <h1>
+      <strong>
+      {{mission.title}}
+      </strong>
+    </h1>
+  </header>
+<a href="{{path('missions_path')}}">&larr; Liste des missions</a>
+<p> <strong>présentation : </strong> {{mission.contenu}}</p>
+
+<ul>
+  <li>
+    <strong> date:</strong>{{mission.dateAs | date()}}
+  </li>
+  <li>
+    <strong> Activité: </strong>{{mission.activity}}
+  </li>
+  <li>
+    <strong>Price:</strong>
+        {% if mission.price == 0 %}
+           free
+        {% else %}
+           {{mission.price}}
+        {% endif %}
+  </li>
+
+<input type="submit" name="done">
+
+</ul>
+<a href="{{path('missions_path')}}">&larr; Liste des missions</a>
+</article>
+
+</body>
+{% endblock %}

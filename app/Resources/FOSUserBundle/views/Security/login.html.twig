@@ -1,0 +1,9 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+    {{ include('@FOSUser/Security/login_content.html.twig') }}
+    <div>
+        <li><a href="{{path('fos_user_registration_register')}}" class="">pas encore inscrit? inscrivez-vous ici</a></li>
+    </div>
+{% endblock fos_user_content %}
+

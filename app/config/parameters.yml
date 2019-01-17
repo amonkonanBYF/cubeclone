@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: cubeclone
+    database_user: root
+    database_password: root
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: fabianbrin@gmail.com
+    mailer_password: null
+    secret: 711141cda784833ad5e588677a33dc7fbbd3214b

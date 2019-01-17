@@ -1,0 +1,285 @@
+<?php
+
+namespace AppBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ *@ORM\Entity
+ *@ORM\Table(name ="mission")
+ */
+
+class Mission {
+
+
+  /**
+   *@ORM\Id
+   *@ORM\Column(type="integer")
+   *@ORM\GeneratedValue(strategy="AUTO")
+   */
+  private $mission_id;
+
+ /**
+   * @ORM\ManyToOne(targetEntity="Business", inversedBy="mission")
+   * @ORM\JoinColumn(name="business", referencedColumnName="business_id")
+   */
+
+  private $business;
+
+  /**
+   * @ORM\ManyToOne(targetEntity="Realise" , inversedBy="mission")
+   * @ORM\JoinColumn(name="user_real", referencedColumnName="realise_id")
+   */
+
+  private $user;
+
+
+
+/**
+ * @ORM\Column(type="string", length=255)
+ */
+  private $title;
+
+   /**
+ * @ORM\Column(type="string", length=255, nullable=true)
+ */
+  private $activity;
+
+   /**
+ * @ORM\Column(type="integer", nullable=true)
+ */
+  private $price;
+   /**
+ * @ORM\Column(type="string", length=255)
+ */
+  private $description;
+/**
+ * @ORM\Column(type="datetime", nullable=true)
+ */
+  private $dateAs;
+
+  /**
+ * @ORM\Column(type="datetime", nullable=true)
+ */
+  private $expired_on;
+
+  /**
+ * @ORM\Column(type="boolean", nullable=true)
+ */
+  private $publish;
+
+  /**
+ * @ORM\Column(type="string", length=255, nullable=true)
+ */
+  private $image;
+
+  /**
+ * @ORM\Column(type="text", nullable=true)
+ */
+  private $contenu;
+
+
+
+
+
+    /**
+     * Get missionId
+     *
+     * @return integer
+     */
+    public function getMissionId()
+    {
+        return $this->mission_id;
+    }
+
+    /**
+     * Set missionName
+     *
+     * @param string $missionName
+     *
+     * @return Mission
+     */
+    public function setMissionName($missionName)
+    {
+        $this->mission_name = $missionName;
+
+        return $this;
+    }
+
+    /**
+     * Get missionName
+     *
+     * @return string
+     */
+    public function getMissionName()
+    {
+        return $this->mission_name;
+    }
+
+    /**
+     * Set missionActivity
+     *
+     * @param string $missionActivity
+     *
+     * @return Mission
+     */
+    public function setMissionActivity($missionActivity)
+    {
+        $this->mission_activity = $missionActivity;
+
+        return $this;
+    }
+
+    /**
+     * Get missionActivity
+     *
+     * @return string
+     */
+    public function getMissionActivity()
+    {
+        return $this->mission_activity;
+    }
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     *
+     * @return Mission
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return integer
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Mission
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set dateAs
+     *
+     * @param \DateTime $dateAs
+     *
+     * @return Mission
+     */
+    public function setDateAs($dateAs)
+    {
+        $this->dateAs = $dateAs;
+
+        return $this;
+    }
+
+    /**
+     * Get dateAs
+     *
+     * @return \DateTime
+     */
+    public function getDateAs()
+    {
+        return $this->dateAs;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Mission
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set business
+     *
+     * @param \AppBundle\Entity\Business $business
+     *
+     * @return Mission
+     */
+    public function setBusiness(\AppBundle\Entity\Business $business = null)
+    {
+        $this->business = $business;
+
+        return $this;
+    }
+
+    /**
+     * Get business
+     *
+     * @return \AppBundle\Entity\Business
+     */
+    public function getBusiness()
+    {
+        return $this->business;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\Realise $user
+     *
+     * @return Mission
+     */
+    public function setUser(\AppBundle\Entity\Realise $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\Realise
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}
